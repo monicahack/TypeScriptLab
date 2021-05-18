@@ -28,18 +28,16 @@ const products = [
     { name: "burger", price: 10.75 },
 ];
 function calcAverageProductPrice(products) {
+    let sum = 0;
     if (products.length <= 0) {
         return 0;
     }
     else {
-        for (const product of products) {
-            let sum = 0;
-            for (let i = 0; i < products.length; i++) {
-                sum += products[i].price;
-            }
-            let averagePrice = sum / products.length;
-            return averagePrice.toFixed(2);
+        for (let i = 0; i < products.length; i++) {
+            sum += products[i].price;
         }
+        let averagePrice = sum / products.length;
+        return averagePrice.toFixed(2);
     }
 }
 let averagePrice = calcAverageProductPrice(products);
@@ -50,18 +48,16 @@ const inventory = [
     { product: { name: "LED", price: 1.00 }, quantity: 20 },
 ];
 function calcInventoryValue(inventory) {
+    let sum = 0;
     if (inventory.length <= 0) {
         return 0;
     }
     else {
-        for (const item of inventory) {
-            let sum = 0;
-            for (let i = 0; i < inventory.length; i++) {
-                sum += inventory[i].product.price * inventory[i].quantity;
-            }
-            let totalInventory = sum;
-            return totalInventory;
+        for (let i = 0; i < inventory.length; i++) {
+            sum += inventory[i].product.price * inventory[i].quantity;
         }
+        let totalInventory = sum;
+        return totalInventory;
     }
 }
 let totalInventory = calcInventoryValue(inventory);

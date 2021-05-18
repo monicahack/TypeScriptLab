@@ -37,11 +37,10 @@ const products: Product[] = [
 ];
 
 function calcAverageProductPrice (products: Product[]){
+    let sum = 0;
     if(products.length <= 0) {
         return 0;
     } else { 
-        for (const product of products) {
-            let sum = 0;
             for(let i = 0; i < products.length; i++) {
                 sum += products[i].price;
             }
@@ -49,7 +48,7 @@ function calcAverageProductPrice (products: Product[]){
             return averagePrice.toFixed(2);
         }
     }
-}
+
 
 let averagePrice = calcAverageProductPrice(products);
 console.log(averagePrice);
@@ -69,11 +68,10 @@ const inventory: InventoryItem[] = [
 ];
 
 function calcInventoryValue (inventory: InventoryItem[]){
+    let sum = 0;
     if(inventory.length <= 0) {
         return 0;
     } else { 
-        for (const item of inventory) {
-            let sum = 0;
             for(let i = 0; i < inventory.length; i++) {
                 sum += inventory[i].product.price * inventory[i].quantity;
             }
@@ -81,7 +79,6 @@ function calcInventoryValue (inventory: InventoryItem[]){
             return totalInventory;
         }
     }
-}
 
 let totalInventory = calcInventoryValue(inventory);
 console.log(totalInventory);
