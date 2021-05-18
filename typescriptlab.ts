@@ -37,17 +37,18 @@ const products: Product[] = [
 ];
 
 function calcAverageProductPrice (products: Product[]){
+    let sum = 0;
+    //I would recommend any variable that is going to be added to as you loop through to be initialized outside the loop at the beginning that way you dont need the extra loop and its best practice 
+    //to declare variables youre going to use to count or track something in a loop at the beginning of your block of code.
     if(products.length <= 0) {
         return 0;
     } else { 
-        for (const product of products) {
-            let sum = 0;
-            for(let i = 0; i < products.length; i++) {
-                sum += products[i].price;
+         //you dont need to have this extra loop here if you initialize above.
+            for(const product of products) {
+                sum += product.price;
             }
             let averagePrice = sum / products.length;
             return averagePrice.toFixed(2);
-        }
     }
 }
 
@@ -69,18 +70,17 @@ const inventory: InventoryItem[] = [
 ];
 
 function calcInventoryValue (inventory: InventoryItem[]){
+    let sum = 0;
     if(inventory.length <= 0) {
         return 0;
     } else { 
-        for (const item of inventory) {
-            let sum = 0;
-            for(let i = 0; i < inventory.length; i++) {
-                sum += inventory[i].product.price * inventory[i].quantity;
+            //same recommendation as above, you can remove one of these and initialize sum above
+            for (const item of inventory) {
+            sum += item.product.price * item.quantity;
             }
             let totalInventory = sum;
             return totalInventory;
-        }
-    }
+      }
 }
 
 let totalInventory = calcInventoryValue(inventory);
